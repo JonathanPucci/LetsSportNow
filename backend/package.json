@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/JonathanPucci/LetsSportNow#readme",
   "dependencies": {
-    "express": "^4.16.0"
+    "express": "^4.16.0",
+    "mime": "^2.0.3"
   }
 }
