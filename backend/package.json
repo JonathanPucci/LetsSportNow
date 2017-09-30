@@ -5,8 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start":
-      "PGPASSWORD=$POSTGRESQL_PASSWORD psql -U postgres -W postgres -f puppies.sql && node server.js"
+    "start": "node server.js"
   },
   "engine": {
     "node": "*",
