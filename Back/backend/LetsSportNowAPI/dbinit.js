@@ -1,36 +1,5 @@
 var db = require("./dbconnection").db;
 
-function createPuppy(id, name, breed, age, sex) {
-  // db.none(
-  //   "CREATE TABLE IF NOT EXISTS pups (" +
-  //     "  ID SERIAL PRIMARY KEY," +
-  //     "  name VARCHAR," +
-  //     "breed VARCHAR," +
-  //     "  age INTEGER," +
-  //     "  sex VARCHAR" +
-  //     ");"
-  // );
-  let puppy = {
-    id: id,
-    name: name,
-    breed: breed,
-    age: age,
-    sex: sex
-  };
-  return db
-    .none(
-      "insert into pups(id, name, breed, age, sex)" +
-        "values(${id}, ${name}, ${breed}, ${age}, ${sex}) ON CONFLICT DO NOTHING",
-      puppy
-    )
-    .then(function() {
-      console.log("added puppy");
-    })
-    .catch(function(err) {
-      console.log("error while adding puppy" + err);
-    });
-}
-
 function createUser(id, name) {
   let user = {
     User_ID: id,
@@ -104,24 +73,22 @@ function createSpot(id, llo, lla, f) {
 db
   .none('TRUNCATE pups, "Users", "Events", "Spots"')
   .then(() => {
-    createPuppy("1", "Tyler", "Retrieved", 3, "M").then(() => {
-      createUser("1", "Guigui").then(() => {
-        createSpot("1", "0", "0", "0").then(() => {
-          createEvent(
-            "1",
-            "0",
-            "0",
-            "descr",
-            "photo",
-            "01/01/2018",
-            "1",
-            "1",
-            "0",
-            "10",
-            "0",
-            "Basketball"
-          );
-        });
+    createUser("1", "Guigui").then(() => {
+      createSpot("1", "0", "0", "0").then(() => {
+        createEvent(
+          "1",
+          "0",
+          "0",
+          "descr",
+          "photo",
+          "01/01/2018",
+          "1",
+          "1",
+          "0",
+          "10",
+          "0",
+          "Basketball"
+        );
       });
     });
   })

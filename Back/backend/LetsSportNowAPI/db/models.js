@@ -3,14 +3,6 @@ interface User {
   User_Name: string
 }
 
-interface Puppy {
-  id: int;
-  name: string;
-  brred: string
-  age: int;
-  sex: string
-}
-
 interface Event {
   Event_ID: int;
   Location_latitude: int;
@@ -36,5 +28,5 @@ interface Spot {
 module.exports = {
   UserModel: User;
   EventModel: Event;
-  PuppyModel : Puppy
+  SpotModel : Spot;
 };
